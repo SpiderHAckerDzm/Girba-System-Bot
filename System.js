@@ -13,13 +13,6 @@ var ServerStatus = "```The Server Is Alive!```"
 
 const PREFIX = '>';
 
-client.commands = new Discord.Collection()
-const commandFiles = fs.readdirSync('./Commands/').filter(file => file.endsWith('.js'));
-for (const file of commandFiles){
-    const command = require(`./Commands/${file}`)
-    client.commands.set(command.name, command);
-}
-
 
 client.on('message', message => {
     if(message.author.bot){return}
